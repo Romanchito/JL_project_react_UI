@@ -20,12 +20,7 @@ export class Home extends Component{
         });
     }
 
-    getFilmImagePath(filmImageName){
-        let dataImg = fetch('https://localhost:44327/api/Image/filmImage/5')
-        .then(response => response.json()).then(r => r.text);
-        return dataImg;
-    }
-
+   
     render(){
         const {films} = this.state;
         return(
@@ -47,7 +42,7 @@ export class Home extends Component{
                             <td>{film.name}</td>
                             <td>{film.releaseDate}</td>
                             <td>{film.country}</td>  
-                            <td><img src={this.getFilmImagePath('https://localhost:44327/api/Image/filmImage/'+ film.id)} /></td>                                                    
+                            <td><img alt={film.name + " image"} width="300" height="400" src={film.filmImageUrl}/></td>                                                    
                         </tr>
                     )}
                </tbody>
